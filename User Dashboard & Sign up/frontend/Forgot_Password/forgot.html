@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Forgot Password</title>
+</head>
+<body>
+  <h2>Forgot Password</h2>
+  <form id="forgotForm">
+    <input type="email" id="email" placeholder="Enter your email" required />
+    <button type="submit">Send OTP</button>
+  </form>
+
+  <script>
+    document.getElementById("forgotForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const email = document.getElementById("email").value;
+      localStorage.setItem("resetEmail", email); // Save for later steps
+
+      const res = await fetch("http://localhost:3000/api/forgot-password", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email })
+      });
+      const data = await res.json();
+      alert(data.message);
+      if (res.ok) window.location.href = "otp.html";
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings - YogaZen</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="dashboard">
+    <aside class="sidebar">
+      <h2>YogaZen</h2>
+      <nav>
+        <ul>
+          <li><a href="index.html">Dashboard</a></li>
+          <li><a href="classes.html">My Classes</a></li>
+          <li><a href="progress.html">Progress</a></li>
+          <li><a href="community.html">Community</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="settings.html">Settings</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <header class="header">
+        <h1>Settings ⚙️</h1>
+      </header>
+
+      <section class="profile-settings">
+        <h2>Profile Summary</h2>
+        <div class="profile-info">
+          <div class="info-item">
+            <strong>Full Name:</strong><span id="name"></span>
+          </div>
+          <div class="info-item">
+            <strong>Email:</strong><span id="email"></span>
+          </div>
+          <div class="info-item">
+            <strong>Age:</strong><span id="age"></span>
+          </div>
+          <div class="info-item">
+            <strong>Height:</strong><span id="height"></span>
+          </div>
+          <div class="info-item">
+            <strong>Weight:</strong><span id="weight"></span>
+          </div>
+          <div class="info-item">
+            <strong>Blood Group:</strong><span id="bloodGroup"></span>
+          </div>
+          <div class="info-item">
+            <strong>Location:</strong><span id="location"><i>Not specified</i></span>
+          </div>
+          <div class="info-item">
+            <strong>Joined:</strong><span id="registrationDate"></span>
+          </div>
+        </div>
+        <div class="edit-profile-btn">
+          <a href="edit_profile.html">Edit Profile</a>
+        </div>
+        
+      </section>
+      
+      
+    </main>
+  </div>
+  <script>
+    window.onload = async function () {
+  const token = localStorage.getItem("token");
+
+  if (!token) {
+    window.location.href = "sign_in.html"; // Redirect to login if no token
+    return;
+  }
+
+  try {
+    const response = await fetch('http://localhost:5000/api/user/profile', {
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    });
+
+    const user = await response.json();
+    if (response.ok) {
+      document.getElementById("name").textContent = user.name;
+      document.getElementById("email").textContent = user.email;
+      document.getElementById("age").textContent = user.age;
+      document.getElementById("height").textContent = user.height;
+      document.getElementById("weight").textContent = user.weight;
+      document.getElementById("bloodGroup").textContent = user.bloodGroup;
+    } else {
+      console.error(user.message);
+    }
+  } catch (error) {
+    console.error("Error fetching user profile:", error);
+  }
+};
+
+fetch('http://localhost:5000/api/user/profile', {
+  headers: {
+    Authorization: `Bearer ${localStorage.getItem('token')}`
+  }
+})
+  .then(res => res.json())
+  .then(data => {
+    const user = data.user;
+    if (!user || !user.createdAt) {
+      document.getElementById('registrationDate').textContent = '04-05-2025';
+      return;
+    }
+
+    const joinedDate = new Date(user.createdAt).toLocaleDateString();
+    document.getElementById('registrationDate').textContent = `Joined on: ${joinedDate}`;
+  })
+  .catch(err => console.error('Error fetching profile:', err));
+
+
+  </script>
+</body>
+</html>

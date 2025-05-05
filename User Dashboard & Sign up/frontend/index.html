@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Yoga Dashboard</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="dashboard">
+    <aside class="sidebar">
+      <h2>YogaZen</h2>
+      <nav>
+        <ul>
+          <li><a href="index.html">Dashboard</a></li>
+          <li><a href="classes.html">My Classes</a></li>
+          <li><a href="progress.html">Progress</a></li>
+          <li><a href="community.html">Community</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="settings.html">Settings</a></li>
+        </ul>
+      </nav>
+    </aside>
+    
+
+    <main class="main-content">
+      <header class="header">
+        <div class="user-info">
+          <img src="https://i.pravatar.cc/100?img=5" alt="User" class="avatar">
+          <div>
+            <h1 id="greeting">Welcome back, <span id="name">User</span> 🌞</h1>
+
+            <p>Your body hears everything your mind says. Keep going!</p>
+            <p class="subtle">You're doing great! Keep up the consistency and remember to hydrate. 🧘‍♀️💧</p>
+          </div>
+        </div>
+        <button id="logout-button" class="logout-button">🔓 Logout</a></button>
+
+      </header>
+      
+
+      <section class="cards">
+        <div class="card">
+          <h3>Today's Class</h3>
+          <p>🧘‍♀️ Vinyasa Flow</p>
+          <p>6:00 PM - 7:00 PM</p>
+        </div>
+        <div class="card">
+          <h3>Progress</h3>
+          <p>✅ 12 of 30 Classes Completed</p>
+        </div>
+        <div class="card">
+          <h3>Upcoming</h3>
+          <p>🕉️ Restorative Yoga - Tomorrow</p>
+        </div>
+        <div class="card">
+          <h3>Goal Tracker</h3>
+          <p>🗓️ 4 Days Streak</p>
+          <p>💪 2 Hours This Week</p>
+        </div>
+      </section>
+      <section class="health-overview">
+        <div class="health-card">
+          <h3>Your Health Snapshot</h3>
+          <ul>
+            
+            <li><strong>Email:</strong> <span id="email"></span></li>
+            <li><strong>Name: </strong> <span id="username"></span></li>
+            <li><strong>Age:</strong> <span id="age"></span></li>
+            <li><strong>Height:</strong> <span id="height"></span> cm</li>
+            <li><strong>Weight:</strong> <span id="weight"></span> kg</li>
+            <li><strong>Blood Group:</strong> <span id="bloodGroup"></span></li>
+          </ul>
+          
+        </div>
+      
+        <div class="tip-card">
+          <h3>Weekly Tip 🌿</h3>
+          <p>Try adding 5 minutes of mindful breathing before your next session. It improves focus and flexibility!</p>
+        </div>
+      </section>
+      
+
+      <section class="activity">
+        <div class="activity-card">
+          <h3>Recent Activity</h3>
+          <ul>
+            <li>🌄 Completed Sunrise Yoga - Apr 18</li>
+            <li>🧘‍♂️ Attended Yin Yoga - Apr 17</li>
+            <li>📥 Downloaded Breathing Guide</li>
+          </ul>
+        </div>
+
+        <div class="activity-card quote">
+          <h3>Daily Inspiration</h3>
+          <blockquote>"The pose begins when you want to leave it." – B.K.S. Iyengar</blockquote>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script>
+    window.onload = async function () {
+  const token = localStorage.getItem("token");
+
+  if (!token) {
+    window.location.href = "sign_in.html"; // Redirect to login if no token
+    return;
+  }
+
+  try {
+    const response = await fetch('http://localhost:5000/api/user/profile', {
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    });
+
+    const user = await response.json();
+    if (response.ok) {
+      document.getElementById("name").textContent = user.name;
+      document.getElementById("username").textContent = user.name;
+      document.getElementById("email").textContent = user.email;
+      document.getElementById("age").textContent = user.age;
+      document.getElementById("height").textContent = user.height;
+      document.getElementById("weight").textContent = user.weight;
+      document.getElementById("bloodGroup").textContent = user.bloodGroup;
+    } else {
+      console.error(user.message);
+    }
+  } catch (error) {
+    console.error("Error fetching user profile:", error);
+  }
+};
+
+</script>
+<script>
+  document.getElementById('logout-button').addEventListener('click', function () {
+    // Clear auth token
+    localStorage.removeItem('token');
+
+    // Show alert
+    alert("You have been logged out.");
+
+    // Redirect to login
+    window.location.href = "../../index.html"; // Adjust path if needed
+  });
+</script>
+
+
+</body>
+</html>

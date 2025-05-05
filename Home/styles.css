@@ -1,0 +1,158 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body{
+    background-image: url('img.avif');
+    background-size: cover;
+}
+/* Header styling */
+header {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgb(35, 66, 25);
+    gap: 30px;
+}
+.logo{
+    width: 100%;
+    display: flexbox;
+    align-items: left;
+}
+
+.avatar{
+    border-radius: 50%;
+}
+
+
+.logo-img{
+    width: 100%;
+    display: flex;
+}
+
+.logo img{
+    height: 100px;
+}
+
+
+/* Navigation menu */
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    position: relative;
+    z-index: 999;
+    cursor: pointer;
+}
+
+a:hover{
+    color: #6cc49a;
+}
+/* Hero section */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: url('IMG-20250304-WA0017.jpg') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.content {
+    position: relative;
+    color: white;
+    z-index: 1;
+}
+
+.content h2 {
+    font-size: 36px;
+    background: rgba(0, 0, 0, 0.7);
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.content p {
+    font-size: 20px;
+    background: white;
+    color: black;
+    display: inline-block;
+    padding: 5px 15px;
+    margin-top: 10px;
+    border-radius: 3px;
+}
+
+.streak-container {
+    width: 140px;
+    top: 20px;
+    background: rgba(255, 165, 0, 0.9);
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.streak-container p {
+    margin: 0;
+}
+
+/* Streak Popup */
+.streak-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 20px 30px;
+    border-radius: 10px;
+    font-size: 20px;
+    text-align: center;
+    z-index: 1000;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Fade-in effect */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -60%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+#chatbot-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+}

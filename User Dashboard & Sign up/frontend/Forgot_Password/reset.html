@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Reset Password</title>
+</head>
+<body>
+  <h2>Reset Password</h2>
+  <form id="resetForm">
+    <input type="password" id="newPassword" placeholder="New Password" required />
+    <button type="submit">Reset</button>
+  </form>
+
+  <script>
+    document.getElementById("resetForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const newPassword = document.getElementById("newPassword").value;
+      const email = localStorage.getItem("resetEmail");
+
+      const res = await fetch("http://localhost:3000/api/reset-password", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, newPassword })
+      });
+
+      const data = await res.json();
+      alert(data.message);
+      if (res.ok) {
+        localStorage.removeItem("resetEmail");
+        window.location.href = "sign_in.html"; // back to login
+      }
+    });
+  </script>
+</body>
+</html>

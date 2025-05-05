@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard UI</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-left">
+      <h2>🏠 Properties</h2>
+      <ul>
+        <li>Analytics</li>
+        <li>Portfolio</li>
+        <li>Tools</li>
+      </ul>
+    </div>
+    <div class="nav-right">
+      <input type="text" placeholder="Search..." />
+      <img src="https://i.pravatar.cc/30" alt="user" class="avatar" />
+    </div>
+  </nav>
+
+  <main class="dashboard">
+    <section class="stats">
+      <div class="card">Properties visits<br /><strong>721K</strong></div>
+      <div class="card">Deals completed<br /><strong>1,156</strong></div>
+      <div class="card">Amount invested<br /><strong>367K</strong></div>
+      <div class="card">Average price<br /><strong>239K</strong></div>
+    </section>
+
+    <section class="charts">
+      <div class="chart-card">
+        <h3>Mortgage Payment</h3>
+        <canvas id="barChart"></canvas>
+      </div>
+      <div class="chart-card">
+        <h3>Active Listings</h3>
+        <canvas id="doughnutChart"></canvas>
+      </div>
+    </section>
+
+    <section class="profile-section">
+      <div class="profile-card">
+        <h3>Soul Stretch</h3>
+        <p>📞 +91-9998888123</p>
+        <p>📍 Bhubaneswar, India</p>
+        <p>💰 Total users: 1,201</p>
+      </div>
+
+      <div class="property-list">
+        <h3>Yoga Poses</h3>
+        <ul>
+          <li>Cedarwood Estates - $200,000</li>
+          <li>Lakeview Lofts - $250,000</li>
+          <li>Tranquil Oaks - $350,000</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

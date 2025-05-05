@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yoga Club</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../chatbot/chatbot.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <div class="logo-img"><img src="\logo.png" alt=""></div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="../Home/Home.html">Home</a></li>
+                <li><a href="../about/about.html">About</a></li>
+                <li><a href="#">Trainer</a></li>
+                <li><a href="../Contact us/index.html">Contact</a></li>
+                <li><a href="../User Dashboard & Sign up/frontend/index.html" class="btn"><img src="https://i.pravatar.cc/30" alt="user" class="profile-btn" /></a></li>
+            </ul>
+            
+        </nav>
+    </header>
+
+
+        <div class="container">
+            <form action="yoga.js" method="get" id="userForm">
+                <h2>Tell us about yourself</h2>
+                <label for="age">Enter your age: </label>
+                <input type="number" id="age" name="age" min="1" required>
+            <label for="disease">Select your condition:</label>
+            <input id="disease" name="disease" required type="text" placeholder="Choose a condition" list="names">
+                <datalist id="names">
+                <option value="back_pain"></option>
+                <option value="stress"></option>
+                <option value="insomnia"></option>
+                <option value="diabetes"></option>
+                <option value="pcos"></option>
+                <option value="pcod"></option>
+                <option value="anxiety"></option>
+                <option value="high blood pressure"></option>
+                <option value="joint pain"></option>
+                <option value="weight_loss"></option>
+            </datalist>
+            <button id="generate-btn">Generate</button>           
+        </form>   
+        <div id="yoga-results">
+            <div class="card-container"></div> 
+        </div>
+        
+    <div id="chatbot-container"></div>
+
+  <script>
+  fetch('../chatbot/chatbot.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('chatbot-container').innerHTML = data;
+      const script = document.createElement('script');
+      script.src = '../chatbot/chatbot.js';
+      script.defer = true;
+      document.body.appendChild(script);
+    })
+    .catch(error => console.error('Error loading chatbot:', error));
+
+</script>
+<script src="../Home/streak.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

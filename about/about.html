@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soulstretch</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../chatbot/chatbot.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <div class="logo-img"><img src="\logo.png" alt=""></div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="../Home/Home.html">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="../yoga/index.html">Trainer</a></li>
+                <li><a href="../Contact us/index.html">Contact</a></li>
+                <li><a href="../User Dashboard & Sign up/frontend/index.html" class="btn"><img src="https://i.pravatar.cc/30" alt="user" class="profile-btn" /></a></li>
+                
+            </ul>
+            
+        </nav>
+        <div class="streak-container">
+            <p>🔥: <span id="streak-count">1</span> days</p>
+        </div>
+    </header>
+    
+    <section class="goal">
+        <h2>ABOUT US</h2>
+        <p>At SOULSTRETCH we believe yoga is more than just movement—it’s a journey to inner peace, strength, and mindfulness.</p>
+    </section>
+
+    <section class="content">
+        <div class="image">
+            <img src="../Admin/Yoga background.jpeg.jpg" alt="Relaxing">
+        </div>
+        <div class="text">
+            <h3>Welcome To Our Site</h3>
+            <p>We offer a variety of classes, from gentle beginner sessions to dynamic Vinyasa flows. Our site is a place where all types of yoga poses are present.</p>
+            
+            <h3>Why Choose Us?</h3>            
+            <p>We have the best features such as Secure login,Health-based Yoga Recommendations,Built-in Timer,Ad-free Experience and ChatBot for any kind of queries. </p>
+             <p>We’d love for you to join our community! Whether you're new to yoga or a seasoned practitioner, there’s a space for you here. Visit our studio or book a class online today!</p>
+      </div>
+    </section>
+    <div id="chatbot-container"></div>
+
+  <!--<script>
+  fetch('../chatbot/chatbot.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('chatbot-container').innerHTML = data;
+      const script = document.createElement('script');
+      script.src = '../chatbot/chatbot.js';
+      script.defer = true;
+      document.body.appendChild(script);
+    })
+    .catch(error => console.error('Error loading chatbot:', error));
+
+</script>-->
+<script src="streak.js"></script>
+</body>
+</html>

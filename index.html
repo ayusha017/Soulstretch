@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css" rel="StyleSheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <title>SoulStretch</title>
+</head>
+<body>
+    
+    
+    <section class="hero" id="hero">
+      <header>
+        <div class="logo">
+            <div class="text">
+                <h1>SOULSTRETCH</h1>
+                <p>Pause and Pose</p>
+            </div>
+            <div class="logo-img"><img src="logo.png" alt=""></div>
+            
+        </div>
+    </header>
+      <video autoplay muted loop playsinline >
+        <source src="videoplayback.mp4" type="video/mp4">
+      </video>
+      
+        <div class="content">
+
+            <p>Soul Stretch</p>
+            <h2>Inner Peace<br>Outer Strength</h2>
+            <a href="./User Dashboard & Sign up/frontend/Sign_in/sign_in.html" class="sign-in-btn">Sign In</a>
+
+            
+        </div>
+    </section>
+    <section class="testimonials">  
+            <div class="carousel-container">
+              <div class="arrow left" onclick="prevSlide()">&#10094;</div>
+              <div class="arrow right" onclick="nextSlide()">&#10095;</div>
+                <div class="carousel-images" id="carousel">
+                  <img src="./New folder/catcow-2.webp" alt="Yoga Pose 4">
+                  <img src="./New folder/yoga3.avif" alt="Yoga Pose 1" />
+                  <img src="./New folder/yoga5.avif" alt="Yoga Pose 2" />
+                  <img src="./New folder/yoga4.avif" alt="Yoga Pose 3" />
+                  <!-- Add more images as needed -->
+                   
+                </div>  
+              </div>
+
+                <div class="dots" id="dots">
+                  <div class="dot active"></div>
+                  <div class="dot"></div>
+                  <div class="dot"></div>
+                  <div class="dot"></div>
+                </div>
+                 
+              <div class="details">
+                <h2>Time To Do A Pose And Pause</h2>
+                <p>Personalized yoga sessions, guided videos, disease-based recommendations, live classes, and more. Designed to align your inner peace and outer strength.</p>
+              </div>       
+    </section>
+    <section class="vlog-section">
+      <h2>Explore Our <span class="highlight">Yoga Vlogs</span></h2>
+      <p>Watch our instructors demonstrate poses, share tips, and guide you through various practices.</p>
+  
+      <div class="carousel-wrapper">
+        <button class="arrow left" onclick="scrollCarousel(-1)">&#10094;</button>
+  
+        <div class="carousel" id="vlogCarousel">
+          <!-- Card 1 -->
+          <div class="vlog-card">
+            <img src="./New folder/vlog1.avif" alt="Morning Flow" />
+            <span class="tag beginner">Nutrition</span>
+            <h3>Top 10 Nutrition Myths</h3>
+            <p>Misinformation in diet and nutrition travels more quickly in today’s fast-paced era than a viral video.</p>
+            <div class="card-footer">
+              <span><a href="">Read More</a></span>
+              
+            </div>
+          </div>
+  
+          <!-- Card 2 -->
+          <div class="vlog-card">
+            <img src="./New folder/vlog2.avif" alt="Meditation" />
+            <span class="tag intermediate">Mental Health</span>
+            <h3>Say No To Bad Sleep Habits</h3>
+            <p>Insomnia is difficulty falling asleep or staying asleep. In many cases, you can relieve insomnia by making a few simple lifestyle changes.</p>
+            <div class="card-footer">
+              <span><a href="">Read More</a></span>
+              
+            </div>
+          </div>
+  
+          <!-- Card 3 -->
+          <div class="vlog-card">
+            <img src="./New folder/vlog3.avif" alt="Power Yoga" />
+            <span class="tag advanced">Advanced</span>
+            <h3>Power Yoga Flow</h3>
+            <p>Finding it difficult to see your phone and turning up brightness?</p>
+            <div class="card-footer">
+              <span><a href="">Read More</a></span>
+              
+            </div>
+          </div>
+  
+          <!-- Card 4 -->
+          <div class="vlog-card">
+            <img src="https://via.placeholder.com/250x150?text=Yoga+4" alt="Back Pain Yoga" />
+            <span class="tag therapeutic">Therapeutic</span>
+            <h3>Yoga for Back Pain</h3>
+            <p>Gentle stretches and poses to alleviate and prevent back pain.</p>
+            <div class="card-footer">
+              <span><a href="">Read More</a></span>
+              
+            </div>
+          </div>
+          <!--Card 5-->
+          <div class="vlog-card">
+            <img src="https://via.placeholder.com/250x150?text=Yoga+4" alt="Back Pain Yoga" />
+            <span class="tag therapeutic">Therapeutic</span>
+            <h3>Yoga for Back Pain</h3>
+            <p>Gentle stretches and poses to alleviate and prevent back pain.</p>
+            <div class="card-footer">
+              <span><a href="">Read More</a></span>
+              
+            </div>
+          </div>
+
+          <!-- Card 6 -->
+          <div class="vlog-card">
+            <img src="https://via.placeholder.com/250x150?text=Yoga+4" alt="Back Pain Yoga" />
+            <span class="tag therapeutic">Therapeutic</span>
+            <h3>Yoga for Back Pain</h3>
+            <p>Gentle stretches and poses to alleviate and prevent back pain.</p>
+            <div class="card-footer">
+              <span><a href="">Read More</a></span>
+              
+            </div>
+          </div>
+
+          <!-- Card 7 -->
+          <div class="vlog-card">
+            <img src="https://via.placeholder.com/250x150?text=Yoga+4" alt="Back Pain Yoga" />
+            <span class="tag therapeutic">Therapeutic</span>
+            <h3>Yoga for Back Pain</h3>
+            <p>Gentle stretches and poses to alleviate and prevent back pain.</p>
+            <div class="card-footer">
+              <span><a href="">Read More</a></span>
+              
+            </div>
+          </div>
+
+          <!-- Card 8 -->
+          <div class="vlog-card">
+            <img src="https://via.placeholder.com/250x150?text=Yoga+4" alt="Back Pain Yoga" />
+            <span class="tag therapeutic">Therapeutic</span>
+            <h3>Yoga for Back Pain</h3>
+            <p>Gentle stretches and poses to alleviate and prevent back pain.</p>
+            <div class="card-footer">
+              <span><a href="">Read More</a></span>
+              
+            </div>
+          </div>
+          <!-- Add more cards here -->
+        </div>
+      </div>
+  
+      <div class="dots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+    </section>
+
+    <section class="reviews-section slide-up">
+      <div class="header-section fade-in">
+        <h2>Discover What <span class="highlight">Clients Say</span> About Us</h2>
+      </div>
+      <h3>Reviews From Customers</h3>
+      <div class="review-cards">
+        <div class="card hover-raise">
+          <p class="quote">“Andrew was amazing. Been fighting for disability for years and he got it done with back pay in a couple months.”</p>
+          <div class="author">
+            <img src="avatar1.jpg" alt="Jerad Brannen" />
+            <p>Jerad Brannen</p>
+          </div>
+        </div>
+        <div class="card hover-raise">
+          <p class="quote">“Andrew made the process of filing my claim with the VA extremely easy and gave me the confidence to follow through and get approved.”</p>
+          <div class="author">
+            <img src="avatar2.jpg" alt="Armando Aceves" />
+            <p>Armando Aceves</p>
+          </div>
+        </div>
+      </div>
+  
+      <div class="cta">
+        <button class="glow-button">Get help from experts</button>
+        <p class="phone">(888) 883-2483</p>
+      </div>
+    </section>
+  
+    <section class="bottom-testimonials fade-in delay-1">
+      <div class="testimonial hover-raise">
+        <p>Andrew McKeown Law office terrific handling my case. I would recommend Andrew’s Law office to everyone...</p>
+      </div>
+      <div class="testimonial hover-raise">
+        <p>To all veterans in need of legal advice, the clear choice is Andrew McKeown...</p>
+      </div>
+      <div class="testimonial hover-raise">
+        <p>I applied to Andrew McKeown’s Office and through his effort I received my 100 percent within a couple of months...</p>
+      </div>
+    </section>
+  
+    <!-- Bottom Testimonials -->
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const carousel = document.getElementById("carousel");
+        const slides = carousel?.children;
+        const dotsContainer = document.getElementById("dots");
+        const dots = dotsContainer.querySelectorAll(".dot");
+        const totalSlides = slides?.length || 0;
+        let index = 0;
+        let slideInterval;
+    
+        function updateSlide() {
+          carousel.style.transform = `translateX(-${index * 100}%)`;
+          dots.forEach((dot, i) => {
+            dot.classList.toggle("active", i === index);
+          });
+        }
+    
+        function autoSlide() {
+          index = (index + 1) % totalSlides;
+          updateSlide();
+        }
+    
+        function startAutoSlide() {
+          clearInterval(slideInterval);
+          slideInterval = setInterval(autoSlide, 4000);
+        }
+    
+        window.prevSlide = function () {
+          index = (index - 1 + totalSlides) % totalSlides;
+          updateSlide();
+          startAutoSlide();
+        };
+    
+        window.nextSlide = function () {
+          index = (index + 1) % totalSlides;
+          updateSlide();
+          startAutoSlide();
+        };
+    
+        dots.forEach((dot, i) => {
+          dot.addEventListener("click", () => {
+            index = i;
+            updateSlide();
+            startAutoSlide();
+          });
+        });
+    
+        // Start sliding on load
+        if (totalSlides > 0) {
+          updateSlide();
+          startAutoSlide();
+        }
+      });
+    </script>
+    
+      
+      <footer class="footer">
+        <div class="footer-container">
+          <div class="footer-row">
+            <div class="footer-col">
+              <h4>Useful Links</h4>
+              <ul>
+                <li><a href="">Home</a></li>
+                <li><a href="">About</a></li>
+                <li><a href="">Service</a></li>
+                <li><a href="">Community</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h4>Our Blogs</h4>
+              <ul>
+                <li><a href="">Nutrition</a></li>
+                <li><a href="">Mental Health</a></li>
+                <li><a href="">Fitness</a></li>
+    
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h4>Popular Cities</h4>
+              <ul>
+                <li><a href="">Bengaluru</a></li>
+                <li><a href="">Hyderabad</a></li>
+                <li><a href="">Bhubaneswar</a></li>
+                <li><a href="">Cuttack</a></li>
+                <li><a href="">Kolkata</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h4>Follow Us</h4>
+              <div class="social-links">
+                <i class="fab fa-facebook"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-youtube"></i>
+                <i class="fab fa-linkedin"></i>
+              </div>
+            </div>
+          </div>
+        </div><br><br>
+        <p class="copyright">© 2025 SoulStretch | All rights reserved</p>
+        <div class="policies">
+          <p>Privacy Policy</p>
+          <p>Refund Policy</p>
+          <p>Terms of Use</p>
+        </div>
+      </footer>
+      
+</body>
+</html>

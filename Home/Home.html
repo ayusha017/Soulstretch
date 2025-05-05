@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yoga Club</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../chatbot/chatbot.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <div class="logo-img"><img src="\logo.png" alt=""></div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="../about/about.html">About</a></li>
+                <li><a href="../yoga/index.html">Trainer</a></li>
+                <li><a href="../Contact us/index.html">Contact</a></li>
+                <li><a href="../User Dashboard & Sign up/frontend/index.html" class="btn"><img src="https://i.pravatar.cc/30" alt="user" class="avatar" /></a></li>
+            </ul>
+            
+        </nav>
+        <div class="streak-container">
+            <p>🔥: <span id="streak-count">1</span> days</p>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="overlay"></div>
+        <div class="content">
+            <h2>Welcome to Our Yoga Club</h2><br>
+            <p>DO YOUR PRACTICE AND</p>
+            <p>ALL IS COMING</p>
+        </div>
+    </section>
+    <div id="chatbot-container"></div>
+
+  <script>
+  fetch('../chatbot/chatbot.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('chatbot-container').innerHTML = data;
+      const script = document.createElement('script');
+      script.src = '../chatbot/chatbot.js';
+      script.defer = true;
+      document.body.appendChild(script);
+    })
+    .catch(error => console.error('Error loading chatbot:', error));
+
+</script>
+<script>
+    // Step 1: Block back button
+    window.history.pushState(null, "", window.location.href);
+    window.onpopstate = function () {
+      window.history.pushState(null, "", window.location.href);
+    }
+</script>
+  
+<script src="streak.js"></script>
+</body>
+</html>

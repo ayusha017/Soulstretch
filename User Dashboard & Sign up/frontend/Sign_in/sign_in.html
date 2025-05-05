@@ -1,0 +1,32 @@
+<!-- login.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login - Soul Stretch</title>
+  <link rel="stylesheet" href="sign_in.css">
+</head>
+<body>
+  <div class="login-container">
+    <div class="login-card">
+      <h2>SOUL STRETCH</h2>
+      <form id="loginForm">
+        <div class="input-group">
+          <label for="username">Username</label>
+          <input type="text" id="email" required>
+        </div>
+        <div class="input-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" required>
+        </div>
+        <button type="submit" class="login-button">Login</button>
+      </form>
+      <p class="error-message" id="errorMsg"></p>
+    <p>Forgot your password? <a href="../Forgot_Password/forgot.html">Reset here</a></p>
+    <p>Don't have an account? <a href="../signup.html">Sign up now</a></p>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

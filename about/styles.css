@@ -1,0 +1,152 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body{
+    background-image: url('img.avif');
+    background-size: cover;
+}
+/* Header styling */
+header {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgb(35, 66, 25);
+    gap: 30px;
+}
+.logo{
+    width: 100%;
+    display: flexbox;
+    align-items: left;
+}
+
+.logo-img{
+    width: 100%;
+    display: flex;
+}
+
+.logo img{
+    height: 100px;
+}
+
+
+/* Navigation menu */
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    position: relative;
+    z-index: 999;
+    cursor: pointer;
+}
+
+a:hover{
+    color: #6cc49a;
+}
+/* Hero section */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: url('IMG-20250304-WA0017.jpg') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.goal {
+    text-align: center;
+    padding: 5px 2px;
+}
+
+.content {
+    display: flex;
+    max-width: 1200px;
+    margin: auto;
+    align-items: center;
+    padding: 40px 20px;
+    gap: 25px;
+}
+
+.image img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 10px;
+}
+
+.text {
+    max-width: 630px;
+}
+
+h2, h3 {
+    color: #222;
+}
+
+.streak-container {
+    width: 140px;
+    top: 20px;
+    background: rgba(255, 165, 0, 0.9);
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.streak-container p {
+    margin: 0;
+}
+
+/* Streak Popup */
+.streak-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 20px 30px;
+    border-radius: 10px;
+    font-size: 20px;
+    text-align: center;
+    z-index: 1000;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Fade-in effect */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -60%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+.profile-btn{
+    border-radius: 50%;
+  }
