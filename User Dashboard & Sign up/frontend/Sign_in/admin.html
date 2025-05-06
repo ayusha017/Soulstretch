@@ -1,0 +1,68 @@
+<!-- login.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin Login - Soul Stretch</title>
+  <link rel="stylesheet" href="sign_in.css">
+</head>
+<body>
+  <div class="login-container">
+    <div class="login-card">
+      <h2>SOUL STRETCH
+      </h2>
+      <h5>Admin Login</h5>
+      <form id="admin-login-form">
+        <div class="input-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" required>
+        </div>
+        <div class="input-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" required>
+        </div>
+        <button type="submit" class="login-button">Login</button>
+      </form>
+      <p class="error-message" id="errorMsg"></p>
+    <p>Login as user? <a href="./sign_in.html">Click here</a></p>
+  </div>
+  </div>
+  <script>
+   const adminLoginForm = document.getElementById('admin-login-form');
+    const usernameInput = document.getElementById('username');
+    const passwordInput = document.getElementById('password');
+
+    adminLoginForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const username = usernameInput.value;
+      const password = passwordInput.value;
+
+      try {
+        const response = await fetch('http://localhost:5000/api/auth/admin/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ username, password }),
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          // Store the token in localStorage
+          localStorage.setItem('adminToken', data.token);
+          console.log(data.token);
+          window.location.href = '../Admin/index.html'; // Redirect to the admin dashboard
+        } else {
+          alert(data.message); // Display error message
+        }
+      } catch (error) {
+        console.error('Error logging in:', error);
+        alert('An error occurred during login.');
+      }
+    });
+  </script>
+</body>
+</html>

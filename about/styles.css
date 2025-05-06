@@ -8,6 +8,7 @@
 body{
     background-image: url('img.avif');
     background-size: cover;
+    background-color: rgb(236, 217, 217);
 }
 /* Header styling */
 header {
@@ -90,18 +91,12 @@ a:hover{
     gap: 25px;
 }
 
-.image img {
-    width: 100%;
-    max-width: 500px;
-    border-radius: 10px;
-}
-
 .text {
     max-width: 630px;
 }
 
 h2, h3 {
-    color: #222;
+    color: #fff2f2;
 }
 
 .streak-container {
@@ -149,4 +144,50 @@ h2, h3 {
 }
 .profile-btn{
     border-radius: 50%;
+  }
+
+  .image-box img{
+    padding-top: 30px;
+    height: 500px;
+    width: 750px;
+    margin-left: 20px;
+    border-radius: 20px;
+  }
+
+.text-box h3{
+    font-size: 30px;
+}
+.about-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 2rem;
+    gap: 2rem;
+
+  }
+
+  .text-box {
+    margin-top: 6px;
+    background-color: rgb(35, 66, 25);
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 450px;
+    margin-left: -90px;
+  }
+
+  .text-box p {
+    color: #fafafa;
+    line-height: 1.5;
+    font-size: 16px;
+  }
+
+  .goal{
+    padding: 200px;
+    align-content: center;
+    height: 60vh;
+  }
+
+  .goal h2{
+    color: rgb(35, 66, 25);
+    font-size: 45px;
   }

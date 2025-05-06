@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard UI</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-left">
+      <h2>🏠 SoulStretch</h2>
+      <ul>
+        <li><a href="#user-list">Users</a></li>
+        <li><a href="#">Home</a></li>
+      </ul>
+    </div>
+    <div class="nav-right">
+      <img src="https://i.pravatar.cc/30" alt="user" class="avatar" />
+    </div>
+  </nav>
+
+  <main class="dashboard">
+    <section class="stats">
+      <div class="card">Total website visits<br /><strong>721K</strong></div>
+      <div class="card" id="user-count">Number of Users<br /><strong>1,156</strong></div>
+      <div class="card">Registered Users<br /><strong>367K</strong></div>
+      <div class="card">Active users<br /><strong>239K</strong></div>
+    </section>
+
+    <section class="charts">
+      <div class="chart-card">
+        <h3>Subscriptions</h3>
+        <canvas id="barChart"></canvas>
+      </div>
+      <div class="chart-card">
+        <h3>Active Users</h3>
+        <canvas id="doughnutChart"></canvas>
+      </div>
+    </section>
+
+    <section class="profile-section">
+      <div class="profile-card">
+        <h3>Soul Stretch</h3>
+        <p>📞 +91-9998888123</p>
+        <p>📍 Bhubaneswar, India</p>
+        <p>💰 Total users: 1,201</p>
+      </div>
+
+      <div class="property-list">
+        <h3>Yoga Poses</h3>
+        <ul>
+          <li>Uttana shishosana</li>
+          <li>Tadasana</li>
+          <li>Adho Mukha Svanasana</li>
+          <li>Trikonasana</li>
+          <li>Setu Bandha Sarvangasana</li>
+        </ul>
+      </div>
+    </section>
+    <section class="user-list" id="user-list">
+      <h3 style="color: #f0f0f0;;">User Details</h3>
+      <table style="width:100%; border-collapse: collapse; background: #ffffff; color: #1e1e1e; border-radius: 10px; overflow: hidden;">
+        <thead style="background-color: #4caf50; color: white;">
+          <tr>
+            <th style="padding: 0.75rem; text-align: left;">Name</th>
+            <th style="padding: 0.75rem; text-align: left;">Email</th>
+            <th style="padding: 0.75rem; text-align: left;">Age</th>
+            <th style="padding: 0.75rem; text-align: left;">Delete Users</th>
+
+          </tr>
+        </thead>
+        <tbody id="users-body">
+          <tr><td style="padding: 0.75rem;">Amit Verma</td><td>amit@example.com</td><td>+91-9876543210</td><td><button onclick="deleteRow(this)" style="border: transparent; background-color: red; padding: 12px; border-radius: 15px; width: 85px; color: white; font-weight: 700;">Delete</button></td></tr>
+          <tr><td style="padding: 0.75rem;">Neha Singh</td><td>neha@example.com</td><td>+91-9123456789</td><td><button onclick="deleteRow(this)" style="border: transparent; background-color: red; padding: 12px; border-radius: 15px; width: 85px; color: white; font-weight: 700;">Delete</button></td></tr>
+          <tr><td style="padding: 0.75rem;">Rahul Das</td><td>rahul@example.com</td><td>+91-9345678912</td><td><button onclick="deleteRow(this)" style="border: transparent; background-color: red; padding: 12px; border-radius: 15px; width: 85px; color: white; font-weight: 700;">Delete</button></td></tr>
+          <tr><td style="padding: 0.75rem;">Priya Sharma</td><td>priya@example.com</td><td>+91-9988776655</td><td><button onclick="deleteRow(this)" style="border: transparent; background-color: red; padding: 12px; border-radius: 15px; width: 85px; color: white; font-weight: 700;">Delete</button></td></tr>
+        </tbody>
+      </table>
+    </section>
+    
+  </main>
+
+  <script src="script.js"></script>
+  <script>
+    function deleteRow(button){
+      const row = button.closest('tr');
+      row.remove();
+    };
+  window.onload = async function () {
+    const token = localStorage.getItem("adminToken");
+    console.log("Token from localStorage:", token);
+
+    if (!token) {
+      alert("Unauthorized. Please log in.");
+      window.location.href = "../Sign_in/admin.html";
+      return;
+    }
+
+    try {
+      const res = await fetch('http://localhost:5000/api/user/all', {
+        method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${token}`,  // Ensure this is correct
+        },
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.message); // Show error message from response if any
+      }
+
+      // Clear existing rows in the table body
+      const tbody = document.getElementById("users-body");
+      tbody.innerHTML = '';
+
+      const count = 0;
+      // Loop through the fetched users data and populate the table
+      data.forEach(user => {
+        const row = `<tr>
+          <td>${user.name}</td>
+          <td>${user.email}</td>
+          <td>${user.age}</td>
+          <td><button onclick="deleteRow(this)" style="border: transparent; background-color: red; padding: 12px; border-radius: 15px; width: 85px; color: white; font-weight: 700;">Delete</button></td>
+        </tr>`;
+        tbody.innerHTML += row;
+      });
+
+    } catch (err) {
+      console.error("Error fetching users:", err);
+      alert("Failed to load users.");
+    }
+  };
+
+  function deleteRow(button) {
+    const row = button.closest('tr');
+    row.remove();
+  }
+</script>
+</body>
+</html>

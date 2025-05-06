@@ -8,11 +8,12 @@ exports.getUserProfile = async (req, res) => {
 
     // Find user by ID and exclude password field
     const user = await User.findById(userId).select('-password');
+    console.log(user);
     if (!user) {
       return res.status(404).json({ message: 'User not found' });
     }
 
-    res.status(200).json({user});
+    res.status(200).json(user);
   } catch (err) {
     console.error('Error fetching user profile:', err);
     res.status(500).json({ message: 'Server error' });
@@ -61,6 +62,16 @@ exports.deleteUserAccount = async (req, res) => {
     res.status(200).json({ message: 'Account deleted successfully' });
   } catch (err) {
     console.error('Error deleting user account:', err);
+    res.status(500).json({ message: 'Server error' });
+  }
+};
+
+exports.getAllUsers = async (req, res) => {
+  try {
+    const users = await User.find().select('-password'); // Exclude passwords
+    res.status(200).json(users);
+  } catch (err) {
+    console.error('Error fetching all users:', err);
     res.status(500).json({ message: 'Server error' });
   }
 };
